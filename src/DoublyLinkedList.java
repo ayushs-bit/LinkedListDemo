@@ -56,25 +56,59 @@ public class DoublyLinkedList
         }
         else
         {
+               //forward
+            
             System.out.println("\n.........forward.......");
-            //forward
             Nodee current;
-            for(current = START;current != null;current=current.next)
+            for(current = START;current.next != null;current=current.next)
             {
                 System.out.print(" "+current.data);
             }
+            System.out.println(" "+current.data);
+            
             //reverse
+            
             System.out.println("\n.........Reverse.........");
-            for(current = null;current != START;current = current.previous)
+            Nodee current1;
+            for(current1 = current;current1 != null;current1 = current1.previous)
             {
-                System.out.print(" "+current.data);
+                System.out.print(" "+current1.data);
             }
         }
     }
     
     void searchnode()
     {
-        
+        if(START ==null)
+        {
+            System.out.println("list empty");
+            
+        }
+        else
+        {
+            System.out.println("enter searching element");
+            Scanner sc3 = new Scanner(System.in);
+            int sea = sc3.nextInt();
+            
+            Nodee current;
+            int count =0;
+            for(current = START;current != null;current = current.next)
+            {
+                if(current.data == sea)
+                {
+                    count++;
+                    break;
+                }
+            }
+            if(count > 0)
+            {
+                System.out.println("...Found...");
+            }
+            else
+            {
+                System.out.println("...Not Found...");
+            }
+        }
     }
     
     public static void main (String args[])
