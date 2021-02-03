@@ -43,9 +43,38 @@ public class DoublyLinkedList
         System.out.println("...data inserted...");
     }
     
-    void deletenode()
+    void deletenodebegin()
     {
-        
+          if(START == null)
+        {
+            System.out.println("list is empty");
+        }
+        else
+        {
+            System.out.println("deleted element : "+START.data);
+            START = START.next;
+            START.previous = null;
+        }
+    }
+    
+    void deletenodelast()
+    {
+        if(START == null)
+        {
+            System.out.println("Double list empty");
+        }
+        else
+        {
+            Nodee current =START ;
+            Nodee Secondlast = null;
+            while(current.next != null)
+            {
+                Secondlast = current;
+                current = current.next;
+            }
+            System.out.println("Deleted Element :"+ current.data);
+            Secondlast.next=null;
+        }
     }
     
     void traversenode()
@@ -117,10 +146,11 @@ public class DoublyLinkedList
         while(true)
         {
             System.out.println("\npress 1 for insert");
-            System.out.println("press 2 for delete");
-            System.out.println("press 3 for traverse");
-            System.out.println("press 4 for search");
-            System.out.println("press 5 for exit");
+            System.out.println("press 2 for delete from begin");
+            System.out.println("press 3 for delete from last");
+            System.out.println("press 4 for traverse");
+            System.out.println("press 5 for search");
+            System.out.println("press 6 for exit");
             
             System.out.println("enter your choice");
             Scanner sc = new Scanner(System.in);
@@ -132,17 +162,21 @@ public class DoublyLinkedList
             }
             else if(ch == 2)
             {
-                obj.deletenode();
+                obj.deletenodebegin();
             }
-            else if (ch == 3)
+            else if(ch == 3)
+            {
+                obj.deletenodelast();
+            }
+            else if (ch == 4)
             {
                 obj.traversenode();
             }
-            else if(ch == 4)
+            else if(ch == 5)
             {
                 obj.searchnode();
             }
-            else if( ch == 5)
+            else if( ch == 6)
             {
                 System.exit(0);
             }

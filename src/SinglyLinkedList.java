@@ -137,11 +137,11 @@ public class SinglyLinkedList
                 case 1:
                     obj.addnode();
                     break;
-                case 3:
-                    obj.deletenodelast();
-                    break;
                 case 2:
                     obj.deletenodebegin();
+                    break;
+                case 3:
+                    obj.deletenodelast();
                     break;
                 case 4:
                     obj.traversenode();
